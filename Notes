@@ -23,3 +23,12 @@
 
 #JSX => Bad API(Malicious) - Handled Cross Side Scripting
  JSX-> ReactElement-> React(JS Object)-> HTML Element(Render on Browser)
+
+#Function Component - Normal Javascript function
+
+#Props - Is Object and Passing argument to function
+
+#ConfigDrivenUI - UI is different data as per location 
+
+# .map => Always give key and should be Unique //Do not used index
+resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restaurant} />)
