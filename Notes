@@ -1,0 +1,25 @@
+#CDN => Content Delivery Network
+
+#CORS => Cross Origin Resource Share - Allows to interact resource with different domain
+
+#NPM => Package Manager
+ npm int - create package.json
+
+#Bundler => Webpack, Parcel, Vit
+ - Compress 
+ - Minimize
+
+#Parcel => 
+ npm install -D parcel
+
+#Package.json
+ "parcel": "^2.8.3"   // ^ Minor Version update
+ "parcel": "~2.8.3"   // ~ Major Version update
+
+#NPX => Execute Package
+ npx parcel index.html    //(execute parcel - run server)
+
+#Babel - Compiler/Transpiler
+
+#JSX => Bad API(Malicious) - Handled Cross Side Scripting
+ JSX-> ReactElement-> React(JS Object)-> HTML Element(Render on Browser)
