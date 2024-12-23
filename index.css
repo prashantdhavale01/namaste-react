@@ -36,6 +36,30 @@
   border: 1px solid #ddd;
 }
 
+.shimmer-card-container{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+
+.shimmer-card{
+  width: 240px;
+  height: 340px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #eee;
+}
+
+.shimmer-card > .image, .shimmer-card > h3, .shimmer-card > div{background-color: #f5f5f5;display:block; width:100%;}
+.shimmer-card > .image{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.shimmer-card > h3{height:26px; margin: 12px 0;}
+.shimmer-card > div{height:18px; margin-bottom: 6px;}
+
+
 .card-container > .card:hover{
   cursor: pointer;
   border: 1px solid #333;

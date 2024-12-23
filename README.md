@@ -64,8 +64,15 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
 # Virtual DOM 
   - Representation of Actual/Real Dom
 
+# Monolith Architecture - All in one project - UI|BE|Auth|DB|SMS|Email 
+# Microservice Architecture - Separate project - UI|BE|Auth|DB|SMS|Email
+
 # React Hooks -> (Normal JS utility function)
-  - useState() 
-    - State variable in React 
+  # useState()
+    - State variable in React - State changed then re-render component
     - Whenever state component is update then react re-render this component
-  - useEffect()
+    - const [dataList, setDataList] = useState();
+  # useEffect() - 
+    - Called after component render
+    - Callback function and Dependency Array
+    - useEffect(()=>{}, [])
