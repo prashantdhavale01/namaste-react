@@ -1,5 +1,6 @@
+import { Link } from "react-router";
 import RestaurantCard from "./RestaurantCard";
-import ShimmerRestaurantCard from "./ShimmerRestaurantCard copy";
+import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 
 import {useEffect, useState} from 'react';
 
@@ -29,7 +30,6 @@ const Body = () => {
       <div className="search-container">
         <input type="text" placeholder="Food / Hotel" value={searchTitle} onInput={(e)=>{setSearchTitle(e.currentTarget.value)}} />
         <button type="button" onClick={()=>{
-          console.log(searchTitle);
           let searchFilterData = listOfRestaurant.filter((res)=> res?.info?.name.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase()));
           setFilteredRestaurant(searchFilterData);
         }}>Search</button>
@@ -40,8 +40,12 @@ const Body = () => {
       </div>
       <div className="card-container">
         {
-          filteredRestaurant.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />)
+          filteredRestaurant.map((restaurant) => 
+            (
+              <Link to={"/Restaurant/"+restaurant.info.id} className="text-decoration">
+                <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+              </Link>
+            )
           )
         }
       </div>

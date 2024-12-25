@@ -68,11 +68,29 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
 # Microservice Architecture - Separate project - UI|BE|Auth|DB|SMS|Email
 
 # React Hooks -> (Normal JS utility function)
-  # useState()
+  # useState() -> const [dataList, setDataList] = useState();
     - State variable in React - State changed then re-render component
     - Whenever state component is update then react re-render this component
-    - const [dataList, setDataList] = useState();
-  # useEffect() - 
+
+  # useEffect() - useEffect(()=>{}, [])
     - Called after component render
     - Callback function and Dependency Array
-    - useEffect(()=>{}, [])
+  # If no dependency array -> useEffect is called on every render (again and again call)
+  # If dependency array is empty [] -> useEffect is called on initial render (just once)
+  # If dependency array has value [] -> useEffect is called every time dependency is updated
+
+  # useRouteError() - catch any errors that may occur during routing
+    - const err = useRouteError() // import {useRouteError} from 'react-router-dom';
+
+  # useParams() - access the parameters of the current route to manage the dynamic routes in the URL
+    - const params = useParams(); // import {useRouteError} from 'react-router-dom';
+    - const {restID} = useParams();  //de-construct object
+
+# Routing - npm i react-router-dom {createRouterBrowser, RouterProvider, Outlet}
+  # Server Side - Call server API and render HTML page
+  # Client Side
+  import createRouterBrowser - path | element | errorElement
+  const appRouter = createBrowserRouter([{path: "/",element: <AppLayout />}]);
+
+  import RouterProvider
+  <RouterProvider router={appRouter} />
