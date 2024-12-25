@@ -94,3 +94,26 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
 
   import RouterProvider
   <RouterProvider router={appRouter} />
+
+# LifeCycle
+  1. Initialization - Class| Function
+  2. Mounting - componentDidMount() - Constructor
+  3. Updating - render() - HTML DOM
+  4. UnMounting - componentWillUnMount()
+
+
+ # Mounting Cycle - 
+  Constructor(Dummy Data) 
+  Render (Dummy Data)
+    <HTML DummyData /> 
+  componentDidMount
+    <API CALL>
+    <this.setState>
+  # Update
+    <API CALL>
+    Render (API Data)
+      <HTML APIData />
+    componentDidUpdate
+
+
+  
