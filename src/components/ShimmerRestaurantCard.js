@@ -1,4 +1,3 @@
-
 const ShimmerRestaurantCard = () => {
   return(
     <div className="shimmer-card-container">

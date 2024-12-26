@@ -11,7 +11,7 @@
  - Compress 
  - Minimize
 
-# Parcel
+# Parcel (is Bundler)
   npm install -D parcel
   - Dev Build
   - Local Serve
@@ -101,7 +101,6 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
   3. Updating - render() - HTML DOM
   4. UnMounting - componentWillUnMount()
 
-
  # Mounting Cycle - 
   Constructor(Dummy Data) 
   Render (Dummy Data)
@@ -114,6 +113,12 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
     Render (API Data)
       <HTML APIData />
     componentDidUpdate
+
+# Lazy Loading (On demand loading) - Chunking/Code Splitting/Dynamic Bundling or Import 
+  import React, {lazy, Suspense} from "react";
+
+  const Grocery = lazy(() => {import "./components/Grocery"});
+  <Suspense fallback={<Shimmer />}><Grocery /> </Suspense>
 
 
   

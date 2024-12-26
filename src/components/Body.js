@@ -3,11 +3,13 @@ import RestaurantCard from "./RestaurantCard";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 
 import {useEffect, useState} from 'react';
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchTitle, setSearchTitle] = useState('');
+  const onlineStatus = useOnlineStatus();
 
   // call after render component
   useEffect(() => {
@@ -24,6 +26,8 @@ const Body = () => {
     setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
+
+  if(!onlineStatus) { return(<h1>You looks offline!!! Please check your internet connection.</h1>)}
 
   return( listOfRestaurant?.length > 0 ? 
     (<div className="body-container">
