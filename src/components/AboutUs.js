@@ -15,8 +15,8 @@ class AboutUs extends Component{
   render(){
     console.log("Parent - render");
     return(
-      <div>
-          <h1>About Us Page</h1>
+      <div className="mx-5 mt-5">
+          <div className="text-xl font-bold">About Us Page</div>
           <div>This is details About Us Page</div>
           <UserFunction name={"Prashant Dhavale"} email={"prashantdhavale01@gmail.com"} />
           <UserClass name={"Prashant Dhavale"} email={"prashantdhavale01@gmail.com"} />

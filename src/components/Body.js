@@ -30,30 +30,34 @@ const Body = () => {
   if(!onlineStatus) { return(<h1>You looks offline!!! Please check your internet connection.</h1>)}
 
   return( listOfRestaurant?.length > 0 ? 
-    (<div className="body-container">
-      <div className="search-container">
-        <input type="text" placeholder="Food / Hotel" value={searchTitle} onInput={(e)=>{setSearchTitle(e.currentTarget.value)}} />
-        <button type="button" onClick={()=>{
-          let searchFilterData = listOfRestaurant.filter((res)=> res?.info?.name.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase()));
-          setFilteredRestaurant(searchFilterData);
-        }}>Search</button>
-        <button type="button" onClick={()=>{
-          let filteredList = listOfRestaurant.filter((res) => res.info.avgRating > 4.2);
-          setFilteredRestaurant(filteredList);
-          }}>Top Rated Restaurant</button>
-      </div>
-      <div className="card-container">
-        {
-          filteredRestaurant.map((restaurant) => 
-            (
-              <Link key={restaurant.info.id} to={"/Restaurant/"+restaurant.info.id} className="text-decoration">
-                <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-              </Link>
+    (
+      <div>
+        <div className="p-1 text-center">
+          <input className="p-1 m-2 border border-solid border-black" type="text" placeholder="Food / Hotel" value={searchTitle} onInput={(e)=>{setSearchTitle(e.currentTarget.value)}} />
+          <button className="px-4 py-1 m-2 bg-slate-400" type="button" onClick={()=>{
+            let searchFilterData = listOfRestaurant.filter((res)=> res?.info?.name.toLocaleLowerCase().includes(searchTitle.toLocaleLowerCase()));
+            setFilteredRestaurant(searchFilterData);
+          }}>Search</button>
+          <button className="px-4 py-1 m-2 bg-slate-400" type="button" onClick={()=>{
+            let filteredList = listOfRestaurant.filter((res) => res.info.avgRating > 4.2);
+            setFilteredRestaurant(filteredList);
+            }}>Top Rated Restaurant</button>
+        </div>
+        <div className="flex flex-wrap">
+          {
+            filteredRestaurant.map((restaurant) => 
+              (
+                <Link key={restaurant.info.id} to={"/Restaurant/"+restaurant.info.id} className="decoration-0">
+                  <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                </Link>
+              )
             )
-          )
-        }
+          }
+        </div>
       </div>
-    </div>) : (<ShimmerRestaurantCard />)
+    ) : (
+      <ShimmerRestaurantCard />
+    )
   );
 }
 

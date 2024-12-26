@@ -41,7 +41,7 @@ class UserClass extends react.Component{
     const {name, email} = this.props;
     const {login} = this.state.userInfo;
     return(
-      <div className="about-us-card">
+      <div className="p-3 mt-5 border border-s border-[#ddd]">
         <div><strong>Class Component</strong></div>
         <div><strong>Name - {name} - {login}</strong></div>
         <div>Address - Pune</div>
@@ -49,7 +49,7 @@ class UserClass extends react.Component{
         <div>Email - {email}</div>
         <div>
         {this.state.count} - 
-        <button type="button" onClick={()=>{
+        <button className="px-4 py-1 m-2 bg-slate-400" type="button" onClick={()=>{
           this.setState({
             count: ++this.state.count
           })

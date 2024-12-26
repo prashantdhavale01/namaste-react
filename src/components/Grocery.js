@@ -1,6 +1,6 @@
 const Grocery = () => {
   return(
-    <h1>All Grocery content is here - Please add products in cart and buy it !!!</h1>
+    <div className="text-lg font-bold">All Grocery content is here - Please add products in cart and buy it !!!</div>
   )
 }
 export default Grocery;

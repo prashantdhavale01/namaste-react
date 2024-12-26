@@ -29,7 +29,7 @@ const UserFunction = (props) => {
 
 
   return(
-    <div className="about-us-card">
+    <div className="p-3 mt-5 border border-s border-[#ddd]">
       <div><strong>Function Component</strong></div>
       <div><strong>Name - {name} - {userInfo?.login}</strong></div>
       <div>Address - Pune</div>
@@ -37,7 +37,7 @@ const UserFunction = (props) => {
       <div>Email - {email}</div>
       <div>
         {count} - 
-        <button type="button" onClick={()=>{
+        <button className="px-4 py-1 m-2 bg-slate-400" type="button" onClick={()=>{
           setCount(++count);
         }}>Click</button>
       </div>

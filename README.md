@@ -120,5 +120,7 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
   const Grocery = lazy(() => {import "./components/Grocery"});
   <Suspense fallback={<Shimmer />}><Grocery /> </Suspense>
 
+# Apply CSS ways - 
+  CSS | SCSS | SASS | Styled-Component | Material UI | Bootstrap | Chakra UI | Ant Design | Tailwind CSS
 
   
