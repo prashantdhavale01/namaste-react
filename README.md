@@ -142,6 +142,52 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
   const UserContext = createContext({loggedUser: 'Prashant Dhavale'});
   # useContext 
   const {loggedUser} = useContext(UserContext);
-  # useContext 
 
+# Redux- library offers state management and easy debug - used Data Layer
+  Redux is not mandatory - Small size application
+  Redux Store is big JS object and kept global central place
+  Similar - Zustand library
+
+  # Redux Toolkit Installation - 
+  - npm install @reduxjs/toolkit
+  - npm install react-redux
+
+  Click           Dispatch        Reducer    Modify redux store        Subscribe      Automatically Updates
+Add Button ----->  Action  ----->  fn()   -----> cart slice     ----->  Selector  ----->  UI cart 
+                                                    
+
+    - Installation Redux toolkit
+    - Build our store
+    - connect our store to app
+    - slice (Cart Slice)
+    - despatch (action)
+    - selector (subscribe)
+
+
+  1. Create store - import {configureStore} from @reduxjs/toolkit
+    const appstore = configureStore({
+      
+    });
+
+  2. Provide stor to application - import {Provider} from react-redux
+      <Provider store={appstore}>
+        // Body
+      </Provider>
+
+  3. cerate cartSlice  import {createSlice} from @reduxjs/toolkit
+     - name, initialState
+     const cartSlice = createSlice({
+      name: cart,
+      initialState: { items:[] },
+      reducers: {
+        addItem: (state, action) => {state.items.push(action.payload)},
+        removeItem: (state, action) => {state.items.pop(action.payload)},
+        clearCart: (state) => {state.items.length=0},
+      }
+     })
+
+  4. Subscribing to store useSelector((store)=>store.cart.items) hook
+
+  5. Add item useDispatch(addItem("Pizza")) hook
+     
 

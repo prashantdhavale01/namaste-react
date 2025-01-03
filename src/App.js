@@ -11,12 +11,15 @@ import ShimmerRestaurantCard from "./components/ShimmerRestaurantCard";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/AppStore";
 
 // Lazy Loading Importing
 const Body = lazy(() => import("./components/Body"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const Grocery = lazy(() => import("./components/Grocery"));
 const ContactUs = lazy(() => import("./components/ContactUs"));
+const Cart = lazy(() => import("./components/Cart"));
 
 {/* Component Composition */}
 const AppLayout = () => {
@@ -37,12 +40,15 @@ const AppLayout = () => {
 
 
   return (
-    <UserContext.Provider value={{loggedUser: userName, setUserName}}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+
+    <Provider store={appStore}>
+      <UserContext.Provider value={{loggedUser: userName, setUserName}}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 }
 
@@ -66,6 +72,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element:<Suspense fallback={<ShimmerRestaurantCard />}><ContactUs /></Suspense>
+      },
+      {
+        path: "/cart",
+        element:<Suspense fallback={<ShimmerRestaurantCard />}><Cart /></Suspense>
       },
       {
         path: "/Restaurant/:restId",

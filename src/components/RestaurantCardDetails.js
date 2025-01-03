@@ -28,7 +28,7 @@ const RestaurantCardDetails = () => {
     <div>
       <div className="flex justify-center p-2">
         <div className="text-left w-3/6 bg-[#fff] p-3 border border-solid border-[#ddd] rounded-sm">
-          <img className="h-80 w-full object-cover" src={IMAGE_CDN_URL+cardInfo?.cloudinaryImageId} />
+          <img className="h-48 w-full object-cover" src={IMAGE_CDN_URL+cardInfo?.cloudinaryImageId} />
           <div className="mt-3"><strong>{cardInfo?.name}</strong></div>
           <div>{cardInfo?.costForTwoMessage} - {cardInfo?.avgRatingString}</div>
           <div>{cardInfo?.locality}, {cardInfo?.city}</div>
