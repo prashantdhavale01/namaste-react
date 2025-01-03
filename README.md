@@ -86,6 +86,9 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
     - const params = useParams(); // import {useRouteError} from 'react-router-dom';
     - const {restID} = useParams();  //de-construct object
 
+  # createContext() - Component Props Drilling - avoid props drilling
+    Context is on global space we can update at global place
+
 # Routing - npm i react-router-dom {createRouterBrowser, RouterProvider, Outlet}
   # Server Side - Call server API and render HTML page
   # Client Side
@@ -123,4 +126,22 @@ resObjList.map((restaurant) => <Card key={restaurant.info.id} resData={restauran
 # Apply CSS ways - 
   CSS | SCSS | SASS | Styled-Component | Material UI | Bootstrap | Chakra UI | Ant Design | Tailwind CSS
 
+# High order component
+
+# Controlled and Un-controlled component
+  Controlled - controlling Parent component to child component using props
+  Un-controlled - child component controlling itself
+
+# Lifting the state up - Centralized State Management | Component Communication
+  Parent component passes the count state and the incrementCount function down to childComponent
+
+# Props Drilling
   
+  We can keep data at Global space any component can access
+  # createContext 
+  const UserContext = createContext({loggedUser: 'Prashant Dhavale'});
+  # useContext 
+  const {loggedUser} = useContext(UserContext);
+  # useContext 
+
+

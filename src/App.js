@@ -1,28 +1,48 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import Body from "./components/Body";
+// import Body from "./components/Body";
 // import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
+// import ContactUs from "./components/ContactUs";
 import RestaurantCardDetails from "./components/RestaurantCardDetails";
 import ErrorPage from "./components/ErrorPage";
 import ShimmerRestaurantCard from "./components/ShimmerRestaurantCard";
 // import Grocery from "./components/Grocery";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import UserContext from "./utils/UserContext";
 
 // Lazy Loading Importing
+const Body = lazy(() => import("./components/Body"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const Grocery = lazy(() => import("./components/Grocery"));
-
+const ContactUs = lazy(() => import("./components/ContactUs"));
 
 {/* Component Composition */}
 const AppLayout = () => {
+
+  const [userName, setUserName] = useState('Dummy Name');
+  // Authentication
+  useEffect(() =>{
+    // Make API call and send UserName | Password
+
+    //Return Logged in details
+    const dataName = {
+      name: "Prashant Dhavale"
+    };
+
+    setUserName(dataName.name)
+
+  }, []);
+
+
   return (
-    <>
-      <Header />
-      <Outlet />
-    </>
+    <UserContext.Provider value={{loggedUser: userName, setUserName}}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 }
 
@@ -33,7 +53,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element:<Body />
+        element:<Suspense fallback={<ShimmerRestaurantCard />}><Body /></Suspense>
       },
       {
         path: "/about",
@@ -45,7 +65,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element:<ContactUs />
+        element:<Suspense fallback={<ShimmerRestaurantCard />}><ContactUs /></Suspense>
       },
       {
         path: "/Restaurant/:restId",
