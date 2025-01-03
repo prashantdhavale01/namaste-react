@@ -190,4 +190,30 @@ Add Button ----->  Action  ----->  fn()   -----> cart slice     ----->  Selector
 
   5. Add item useDispatch(addItem("Pizza")) hook
      
+# Type of Testing (Developer)
+  - Unit Testing (Individual module - Like Header)
+  - Integration Testing (Testing by code - Events, rendering)
+  - End to End Testing (E2E) - Start from first page to end page (across flow) Cypress, Papetiao Salenium
 
+  1. React Testing Library (DOM Testing Library)
+    - npm install -D @testing-library/react
+  2. Jest - Javascript testing framework
+    - npm i -D jest
+  3. Install Babel configuration
+    - npm i --save-dev babel-jest @babel/core @babel/preset-env
+  4. configure babel.config.js
+      module.exports = {
+        presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+      };
+  5. Configure Parcel config file to disable default babel file
+  6. Jest Configuration
+     npx jest --init
+  7. if(Jest V is > v28) Install JSDOM Library Separately
+     npm i -D jest-environment-jsdom 
+  8. install @babel/preset-react -to make JSX work in Jest test cases
+     npm i -D @babel/preset-react
+  9. Config @babel/preset-react -inside babel config
+     npm i -D @babel/preset-react
+  10. install @testing-library/jest-dom
+      npm i -D @testing-library/jest-dom
+  
